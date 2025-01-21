@@ -21,7 +21,9 @@ public class Player {
         if (stamina == 0) {
             return;
         }
+
         stamina--;
+
         if (stamina == 0) {
             System.out.println("Игрок уходит с поля");
             countPlayers--;
