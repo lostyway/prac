@@ -1,6 +1,6 @@
 package Day9;
 
-public class Student extends Human {
+ public class Student extends Human {
     private String group;
 
     public Student(String name, String group) {
