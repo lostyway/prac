@@ -17,12 +17,11 @@ public class Courier implements Worker{
         //System.out.println("Курьер выполнил свою работу.");
         salary += 100;
         warehouse.setBalance(warehouse.getBalance() + 1000);
-
     }
 
     @Override
     public void bonus() {
-        if (warehouse.getBalance() >= 1000000) {
+        if (warehouse.getBalance() == 1000000) {
             System.out.println("Курьер получил бонус!");
             salary *= 2;
         }
