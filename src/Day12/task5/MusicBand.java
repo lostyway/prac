@@ -48,12 +48,9 @@ public class MusicBand {
     }
 
     public static void transferMembers(MusicBand a, MusicBand b) {
-        for (MusicArtist member : a.getNameMusicians()) {
-            b.getNameMusicians().add(member);
-        }
+        b.getNameMusicians().addAll(a.getNameMusicians());
         a.getNameMusicians().clear();
         printMembers(b);
-
     }
 
     public static void printMembers(MusicBand musicBand) {
