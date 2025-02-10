@@ -61,7 +61,6 @@ public class MusicBand {
        List<MusicArtist> members = new ArrayList<>();
        List<MusicArtist> members1 = new ArrayList<>();
        List<MusicArtist> members2 = new ArrayList<>();
-       List<MusicArtist> members3 = new ArrayList<>();
        members.add(new MusicArtist("Yura", 22));
        members1.add(new MusicArtist("fd", 212));
        members2.add(new MusicArtist("asd", 72));
