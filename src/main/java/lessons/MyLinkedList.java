@@ -48,8 +48,8 @@ public class MyLinkedList {
                 size--;
                 return;
             } else {
-               temp = temp.getNext();
-               currentIndex++;
+                temp = temp.getNext();
+                currentIndex++;
             }
         }
         throw new IllegalArgumentException();

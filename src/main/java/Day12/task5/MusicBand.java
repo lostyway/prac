@@ -64,7 +64,6 @@ public class MusicBand {
        members.add(new MusicArtist("Yura", 22));
        members1.add(new MusicArtist("fd", 212));
        members2.add(new MusicArtist("asd", 72));
-       members3.add(new MusicArtist("Vaya", 12));
        MusicBand musicBand = new MusicBand("Voda", 2005, members);
        MusicBand musicBand1 = new MusicBand("Voda2", 2006, members1);
        MusicBand musicBand2 = new MusicBand("Voda3", 2007, members2);
