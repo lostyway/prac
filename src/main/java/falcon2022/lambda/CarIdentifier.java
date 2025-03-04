@@ -36,7 +36,10 @@ public final class CarIdentifier {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         CarIdentifier that = (CarIdentifier) object;
-        return yearStart == that.yearStart && yearFinish == that.yearFinish && Objects.equals(number, that.number) && Objects.equals(color, that.color);
+        return yearStart == that.yearStart
+                && yearFinish == that.yearFinish
+                && Objects.equals(number, that.number)
+                && Objects.equals(color, that.color);
     }
 
     @Override

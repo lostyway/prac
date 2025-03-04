@@ -11,8 +11,9 @@ public class CarService {
         this.cars = new ArrayList<>(cars);
     }
 
-    public <T> List<Car> findCar(T detail) {
+    public List<Car> findCar(CarIdentifier carIdentifier, String filter) {
         List<Car> result = new ArrayList<>();
+
         for (Car c : cars) {
 
         }

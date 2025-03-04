@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LibraryServiceTest {
+public class LibraryServiceListed {
 
     private LibraryService libraryService;
     private List<User> users;

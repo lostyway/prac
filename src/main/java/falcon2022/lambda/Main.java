@@ -47,7 +47,7 @@ public class Main {
     }
 
     private static void viewOutput(CarIdentifier carIdentifier) {
-        //CarService carService = new CarService(initCars());
+        CarService carService = new CarService(initCars());
         System.out.println("Машина создана");
     }
 
