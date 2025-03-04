@@ -25,11 +25,9 @@ public class FilterOutput {
                     Filters filter = Filters.values()[filterIndex];
                     CarIdentifier carIdentifier = createCar(filter);
                     if (carIdentifier != null) {
+                        System.out.println("Результаты по поиску: " + filter.getDescription() + ": ");
                         List<Car> result = carService.findCars(carIdentifier, filter);
-                        System.out.println("Результаты по поиску: " + filter.getDescription() + " : ");
-                        if (result.isEmpty()) {
-                            System.out.println("Машины не найдены");
-                        } else {
+                        if (!result.isEmpty()) {
                             result.forEach(System.out::println);
                         }
                      }

@@ -26,6 +26,9 @@ public class CarService {
                 result.add(car);
             }
         }
+        if (result.isEmpty()) {
+            System.out.println("Машины не найдены");
+        }
         return result;
     }
 }
