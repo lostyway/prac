@@ -8,11 +8,11 @@ public enum Filters {
 
     public final String descrtiption;
 
-    Filters(String descrtiption) {
-        this.descrtiption = descrtiption;
+    Filters(String description) {
+        this.descrtiption = description;
     }
 
-    public String getDescrtiption() {
+    public String getDescription() {
         return descrtiption;
     }
 }
