@@ -12,7 +12,7 @@ public class FilterOutput {
         this.scanner = scanner;
     }
 
-    public void showFilerMenu() {
+    public void showFilterMenu() {
         boolean isRunningFilter = true;
         while (isRunningFilter) {
             displayFilters();
@@ -25,12 +25,14 @@ public class FilterOutput {
                     Filters filter = Filters.values()[filterIndex];
                     CarIdentifier carIdentifier = createCar(filter);
                     if (carIdentifier != null) {
-                        System.out.println("Результаты по поиску: " + filter.getDescription() + ": ");
                         List<Car> result = carService.findCars(carIdentifier, filter);
-                        if (!result.isEmpty()) {
+                        System.out.println("Результаты по поиску: " + filter.getDescription() + ": ");
+                        if (result.isEmpty()) {
+                            System.out.println("Машины не найдены");
+                        } else {
                             result.forEach(System.out::println);
                         }
-                     }
+                    }
                 } else if (filterIndex == Filters.values().length) {
                     System.out.println("Выход в главное меню..");
                     isRunningFilter = false;

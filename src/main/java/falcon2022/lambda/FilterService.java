@@ -13,7 +13,7 @@ public class FilterService {
             case COLOR_FINDER -> car -> carIdentifier.getColor() != null
                     && car.getColor().equals(carIdentifier.getColor());
             case YEAR_DIAPASON_FINDER -> car -> carIdentifier.getYearStart() != -1
-                    && carIdentifier.getYearFinish() != 1
+                    && carIdentifier.getYearFinish() != -1
                     && car.getYear() >= carIdentifier.getYearStart()
                     && car.getYear() <= carIdentifier.getYearFinish();
         };

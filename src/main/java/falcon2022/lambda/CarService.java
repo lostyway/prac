@@ -11,23 +11,16 @@ public class CarService {
         this.cars = new ArrayList<>(cars);
     }
 
-    public List<Car> findCars(CarIdentifier carIdentifier, Filters filter) {
+
+    public List<Car> findCars(CarIdentifier carIdentifier, Filters filters) {
         List<Car> result = new ArrayList<>();
-        Predicate<Car> predicate = switch (filter) {
-            case NUMBER_FINDER -> car -> car.getNumber().equals(carIdentifier.getNumber());
-            case SUBNUMBER_FINDER -> car -> car.getNumber().contains(carIdentifier.getNumber());
-            case COLOR_FINDER -> car -> car.getColor().equals(carIdentifier.getColor());
-            case YEAR_DIAPASON_FINDER -> car -> car.getYear() >= carIdentifier.getYearStart()
-                    && car.getYear() <= carIdentifier.getYearFinish();
-        };
+        FilterService filterService = new FilterService();
+        Predicate<Car> predicate = filterService.getFilter(carIdentifier, filters);
 
         for (Car car : cars) {
             if (predicate.test(car)) {
                 result.add(car);
             }
-        }
-        if (result.isEmpty()) {
-            System.out.println("Машины не найдены");
         }
         return result;
     }

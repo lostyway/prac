@@ -4,32 +4,54 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Filter;
 
 public class Main {
     public static void main(String[] args) {
-        boolean isRunningMain = true;
         CarService carService = new CarService(initCars());
         try (Scanner input = new Scanner(System.in)) {
             FilterOutput filterOutput = new FilterOutput(carService, input);
-            while (isRunningMain) {
-                showMainMenu();
-                System.out.print("Ввод:");
-                Integer value = Integer.parseInt(input.nextLine());
-                switch (value) {
-                    case 1 -> filterOutput.showFilerMenu();
-                    case 2 -> {
-                        System.out.println("Выход...");
-                        isRunningMain = false;
-                    }
-                    default -> System.out.println("Пожалуйста, введите корректный номер фильтра");
-                }
-                ;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Произошла ошибка в Main при вводе: " + e.getMessage());
+            runMainLoop(filterOutput, input);
         } catch (Exception e) {
             System.out.println("Произошла глобальная ошибка в Main: " + e.getMessage());
+        }
+    }
+
+    private static void runMainLoop(FilterOutput filterOutput, Scanner input) {
+        boolean isRunningMain = true;
+        while (isRunningMain) {
+            showMainMenu();
+            int choice = getUserChoice(input);
+            if (choice == -1) {
+                continue;
+            }
+            isRunningMain = processChoice(choice, filterOutput);
+        }
+    }
+
+    private static boolean processChoice(int choice, FilterOutput filterOutput) {
+        switch (choice) {
+            case 1 -> {
+                filterOutput.showFilterMenu();
+                return true;
+            }
+            case 2 -> {
+                System.out.println("Выход...");
+                return false;
+            }
+            default -> {
+                System.out.println("Пожалуйста, введите корректный номер фильтра.");
+                return true;
+            }
+        }
+    }
+
+    private static int getUserChoice(Scanner input) {
+        System.out.print("Ввод:");
+        try {
+            return Integer.parseInt(input.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Пожалуйста, введите корректный номер фильтра");
+            return -1;
         }
     }
 
